@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --cream: #f5efe3;
+    --cream-dark: #e8ddca;
+    --green: #263b2b;
+    --red: #b63b32;
+    --black: #171714;
+    --brown: #765844;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--black);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+}
+
+main {
+    overflow: hidden;
+}
+
+section {
+    min-height: 100vh;
+    padding: 80px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.hero {
+    background:
+        radial-gradient(circle at 80% 20%, rgba(182, 59, 50, 0.10), transparent 30%),
+        radial-gradient(circle at 10% 80%, rgba(38, 59, 43, 0.10), transparent 35%),
+        var(--cream);
+    text-align: center;
+}
+
+.small-text,
+.section-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(48px, 14vw, 90px);
+    line-height: 0.95;
+    color: var(--green);
+    margin-bottom: 30px;
+}
+
+.hero p {
+    font-size: 17px;
+    color: var(--brown);
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--brown);
+    animation: bounce 2s infinite;
+}
+
+.story {
+    max-width: 760px;
+    margin: auto;
+}
+
+.story:nth-child(odd) {
+    background: var(--cream-dark);
+}
+
+.story h2,
+.ending h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(38px, 10vw, 68px);
+    line-height: 1;
+    color: var(--green);
+    margin-bottom: 30px;
+}
+
+.story p {
+    max-width: 650px;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.ending {
+    background: var(--green);
+    color: var(--cream);
+    text-align: center;
+}
+
+.ending .section-label {
+    color: #d96a5e;
+}
+
+.ending h2 {
+    color: var(--cream);
+}
+
+.ending p {
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.ending strong {
+    display: block;
+    margin-top: 30px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #e6b46a;
+}
+
+.easter-egg {
+    min-height: 45vh;
+    background: var(--cream);
+    align-items: center;
+    text-align: center;
+}
+
+#secretButton {
+    border: 2px solid var(--green);
+    background: transparent;
+    color: var(--green);
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-family: inherit;
+    font-weight: 800;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+#secretButton:hover {
+    background: var(--green);
+    color: var(--cream);
+    transform: scale(1.04);
+}
+
+#secretContent {
+    margin-top: 40px;
+    max-width: 500px;
+}
+
+#secretContent h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 42px;
+    color: var(--red);
+    margin-bottom: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, 8px);
+    }
+}
+
+@media (min-width: 700px) {
+    section {
+        padding: 100px 60px;
+    }
+
+    .hero p {
+        font-size: 20px;
+    }
+
+    .story p {
+        font-size: 20px;
+    }
+}

@@ -1354,10 +1354,11 @@ body::before {
 }
 
 .employee-photo-frame img {
+    display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    aspect-ratio: 4 / 5;
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
 }
 
 

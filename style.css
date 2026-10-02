@@ -1233,3 +1233,158 @@ blockquote {
     }
 
 }
+/* =================================
+   FINAL POLISH
+================================= */
+
+/* Delikatna faktura całej strony */
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+    z-index: 9999;
+
+    opacity: 0.035;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+
+    mix-blend-mode: multiply;
+}
+
+
+/* =================================
+   LEPSZA CZYTELNOŚĆ NA TELEFONIE
+================================= */
+
+@media (max-width: 699px) {
+
+    body {
+        line-height: 1.7;
+    }
+
+    .story-section {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .story-section h2 {
+        line-height: 0.98;
+        letter-spacing: -0.025em;
+    }
+
+    .person-card {
+        padding-top: 35px;
+        padding-bottom: 35px;
+    }
+
+    .person-card p {
+        margin-bottom: 1.15rem;
+    }
+
+    blockquote {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+}
+
+
+/* =================================
+   WIĘKSZE EKRANY
+================================= */
+
+@media (min-width: 1000px) {
+
+    .story-section {
+        padding-top: 160px;
+        padding-bottom: 160px;
+    }
+
+    .content {
+        max-width: 760px;
+    }
+
+    .person-card:hover {
+        transform: translateX(7px);
+    }
+
+}
+
+
+/* =================================
+   PŁYNNE WEJŚCIE CAŁYCH SEKCJI
+================================= */
+
+.story-section {
+    isolation: isolate;
+}
+
+.story-section .section-number {
+    position: relative;
+}
+
+.story-section .section-number::after {
+    content: "";
+
+    display: inline-block;
+
+    width: 28px;
+    height: 1px;
+
+    margin-left: 10px;
+
+    vertical-align: middle;
+
+    background: currentColor;
+
+    opacity: 0.5;
+}
+
+
+/* =================================
+   EASTER EGG — KARTA
+================================= */
+
+.employee-card {
+    border: 1px solid rgba(32, 35, 29, 0.18);
+}
+
+.employee-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 4 / 5;
+}
+
+
+/* =================================
+   OCHRONA PRZED PRZEPEŁNIENIEM
+================================= */
+
+img,
+.employee-card,
+.person-card,
+blockquote {
+    max-width: 100%;
+}
+
+
+/* =================================
+   DOTYK NA TELEFONIE
+================================= */
+
+@media (hover: none) {
+
+    .person-card:hover {
+        transform: none;
+    }
+
+    .employee-card:hover {
+        transform: rotate(-1deg);
+    }
+
+}

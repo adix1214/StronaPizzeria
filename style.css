@@ -996,3 +996,206 @@ blockquote {
     }
 
 }
+/* =================================
+   EMILIA ROMAGNA — PIZZERIA DETAILS
+================================= */
+
+.story-section {
+    position: relative;
+}
+
+/* Delikatny włoski akcent w narożnikach */
+.story-section::after {
+    content: "EMILIA • ROMAGNA";
+
+    position: absolute;
+    right: 18px;
+    top: 24px;
+
+    font-size: 0.48rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+
+    color: rgba(53, 70, 43, 0.28);
+
+    transform: rotate(90deg);
+    transform-origin: right top;
+
+    pointer-events: none;
+}
+
+.management-section::after,
+.easter-egg-section::after {
+    color: rgba(244, 239, 228, 0.22);
+}
+
+
+/* =================================
+   MAŁE „POMIDOROWE” AKCENTY
+================================= */
+
+.chapter-label {
+    position: relative;
+}
+
+.chapter-label::before {
+    content: "🍅";
+    margin-right: 7px;
+}
+
+
+/* =================================
+   JAK MAKARONY
+================================= */
+
+.big-quote {
+    position: relative;
+}
+
+.big-quote::after {
+    content: "🍝";
+
+    display: inline-block;
+
+    margin-left: 10px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 0.45em;
+
+    transform: rotate(-8deg);
+}
+
+
+/* =================================
+   CHANT — DO PIECA
+================================= */
+
+.chant {
+    position: relative;
+    padding-left: 18px;
+}
+
+.chant::before {
+    content: "🔥";
+
+    position: absolute;
+    left: -8px;
+    top: 2px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 0.75em;
+}
+
+
+/* =================================
+   KOŃCOWY WŁOSKI AKCENT
+================================= */
+
+.final-section::after {
+    content: "FATTO CON CAOS • SERVITO CON AMORE";
+
+    display: block;
+
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+
+    width: 100%;
+
+    transform: translateX(-50%);
+
+    font-size: 0.5rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+
+    color: rgba(53, 70, 43, 0.32);
+
+    pointer-events: none;
+}
+
+.final-section {
+    position: relative;
+}
+
+
+/* =================================
+   MAŁY EFEKT PIECOWY
+================================= */
+
+.management-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.management-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    right: -150px;
+    bottom: -140px;
+
+    border: 1px solid rgba(217, 140, 126, 0.16);
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.management-section .content {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =================================
+   DELIKATNY EFEKT „MENU”
+================================= */
+
+.person-card h3 {
+    position: relative;
+    display: inline-block;
+}
+
+.person-card h3::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 22px;
+    height: 2px;
+
+    background: #b63a2b;
+
+    transition: width 0.4s ease;
+}
+
+.person-card:hover h3::after {
+    width: 100%;
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 699px) {
+
+    .story-section::after {
+        right: 10px;
+        top: 18px;
+        font-size: 0.42rem;
+    }
+
+    .final-section::after {
+        bottom: 15px;
+        padding: 0 15px;
+        line-height: 1.5;
+    }
+
+}

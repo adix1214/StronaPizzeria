@@ -19,3 +19,62 @@ secretButton.addEventListener("click", () => {
         block: "center"
     });
 });
+
+
+/* =================================
+   ANIMACJE PRZY SCROLLU
+================================= */
+
+const animatedElements = document.querySelectorAll(
+    ".story-section .content > *"
+);
+
+animatedElements.forEach((element, index) => {
+    element.classList.add("scroll-reveal");
+
+    // Delikatne opóźnienie kolejnych elementów
+    element.style.setProperty(
+        "--reveal-delay",
+        `${Math.min(index * 35, 280)}ms`
+    );
+});
+
+
+const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+                entry.target.classList.add("revealed");
+
+                observer.unobserve(entry.target);
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.12,
+        rootMargin: "0px 0px -40px 0px"
+    }
+);
+
+
+document
+    .querySelectorAll(".scroll-reveal")
+    .forEach((element) => {
+        revealObserver.observe(element);
+    });
+
+
+/* =================================
+   KARTY OSÓB
+================================= */
+
+const personCards = document.querySelectorAll(".person-card");
+
+personCards.forEach((card) => {
+    card.classList.add("person-reveal");
+    revealObserver.observe(card);
+});

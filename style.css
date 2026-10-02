@@ -1388,3 +1388,11 @@ blockquote {
     }
 
 }
+@media (max-width: 699px) {
+    .hero h1 {
+        font-size: clamp(2.6rem, 11vw, 4.5rem);
+        letter-spacing: -0.035em;
+        word-break: normal;
+        overflow-wrap: normal;
+    }
+}

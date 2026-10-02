@@ -97,3 +97,31 @@ personCards.forEach((card) => {
     card.classList.add("person-reveal");
     revealObserver.observe(card);
 });
+/* =================================
+   UKRYTY WŁOSKI EASTER EGG
+================================= */
+
+const finalDivider = document.querySelector(".final-divider");
+
+if (finalDivider) {
+
+    let secretTaps = 0;
+
+    finalDivider.addEventListener("click", () => {
+
+        secretTaps++;
+
+        if (secretTaps === 3) {
+
+            finalDivider.classList.add("pizza-secret");
+
+            setTimeout(() => {
+                alert("🍕 DO PIECA!!! 🔥");
+            }, 250);
+
+            secretTaps = 0;
+        }
+
+    });
+
+}

@@ -640,3 +640,143 @@ blockquote {
     }
 
 }
+/* =================================
+   PRACOWNIK MIESIĄCA
+================================= */
+
+.employee-photo {
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto 45px;
+    perspective: 1000px;
+}
+
+.employee-card {
+    position: relative;
+    padding: 14px;
+    background: #f4efe4;
+    color: #20231d;
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.35),
+        0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: rotate(-1deg);
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+.employee-card:hover {
+    transform: rotate(0deg) translateY(-5px);
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.4),
+        0 5px 15px rgba(0, 0, 0, 0.18);
+}
+
+.employee-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 4px 13px;
+
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    color: #35462b;
+}
+
+.employee-photo-frame {
+    position: relative;
+    overflow: hidden;
+    background: #d8d0c0;
+}
+
+.photo-placeholder {
+    aspect-ratio: 4 / 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(182, 58, 43, 0.12),
+            transparent 35%
+        ),
+        #ded7c9;
+
+    border: 1px solid rgba(32, 35, 29, 0.18);
+
+    color: #35462b;
+    text-align: center;
+
+    font-family: "DM Serif Display", serif;
+    font-size: 1.4rem;
+    line-height: 1.1;
+}
+
+.photo-placeholder span {
+    transform: rotate(-3deg);
+}
+
+.employee-card-bottom {
+    padding: 18px 8px 8px;
+    text-align: center;
+}
+
+.employee-title {
+    margin-bottom: 4px !important;
+
+    font-family: "Inter", sans-serif;
+    font-size: 0.62rem !important;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+
+    color: #b63a2b !important;
+}
+
+.employee-name {
+    margin-bottom: 8px !important;
+
+    font-family: "DM Serif Display", serif;
+    font-size: 2.4rem !important;
+    line-height: 1;
+
+    color: #20231d !important;
+}
+
+.employee-motto {
+    margin-bottom: 0 !important;
+
+    font-family: "DM Serif Display", serif;
+    font-size: 0.95rem !important;
+    font-style: italic;
+
+    color: #5d5c52 !important;
+}
+
+.employee-card::after {
+    content: "★";
+
+    position: absolute;
+    right: -12px;
+    top: -18px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #b63a2b;
+    color: #f4efe4;
+
+    border-radius: 50%;
+
+    font-size: 1rem;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+    transform: rotate(12deg);
+}

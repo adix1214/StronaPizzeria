@@ -8,21 +8,41 @@ secretButton.addEventListener("click", () => {
 
     if (clicks < 5) {
         secretButton.textContent = `NIE KLIKAJ (${clicks}/5)`;
+
+        // Małe "odbicie" przy każdym kliknięciu
+        secretButton.classList.remove("button-shake");
+
+        void secretButton.offsetWidth;
+
+        secretButton.classList.add("button-shake");
+
         return;
     }
 
-    secretContent.classList.remove("hidden");
+    // Ostatnie kliknięcie
     secretButton.textContent = "NO I PO CO KLIKAŁEŚ XD";
+    secretButton.classList.add("unlocked");
 
-    secretContent.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
+    // Pokazujemy tajną sekcję
+    secretContent.classList.remove("hidden");
+
+    // Delikatne opóźnienie, żeby animacja była czytelna
+    setTimeout(() => {
+        secretContent.classList.add("revealed");
+
+        secretContent.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    }, 150);
+
+    // Nie pozwalamy klikać dalej
+    secretButton.disabled = true;
 });
 
 
 /* =================================
-   ANIMACJE PRZY SCROLLU
+   SCROLL REVEAL
 ================================= */
 
 const animatedElements = document.querySelectorAll(
@@ -32,7 +52,6 @@ const animatedElements = document.querySelectorAll(
 animatedElements.forEach((element, index) => {
     element.classList.add("scroll-reveal");
 
-    // Delikatne opóźnienie kolejnych elementów
     element.style.setProperty(
         "--reveal-delay",
         `${Math.min(index * 35, 280)}ms`

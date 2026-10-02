@@ -780,3 +780,219 @@ blockquote {
 
     transform: rotate(12deg);
 }
+/* =================================
+   EASTER EGG — ODKRYCIE
+================================= */
+
+.secret-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.secret-button::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    transform: translateX(-110%);
+    transition: transform 0.35s ease;
+}
+
+.secret-button:active::after {
+    transform: translateX(110%);
+}
+
+.secret-button.unlocked {
+    background: #b63a2b;
+    border-color: #b63a2b;
+    transform: scale(1.03);
+}
+
+
+/* =================================
+   KLIKANIE — MAŁE ODBICIE
+================================= */
+
+.button-shake {
+    animation: buttonShake 0.25s ease;
+}
+
+@keyframes buttonShake {
+
+    0% {
+        transform: scale(1);
+    }
+
+    35% {
+        transform: scale(0.94) rotate(-1deg);
+    }
+
+    70% {
+        transform: scale(1.04) rotate(1deg);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* =================================
+   TAJNA SEKCJA
+================================= */
+
+.secret-content {
+    opacity: 0;
+    transform: translateY(55px) scale(0.96);
+    transition:
+        opacity 0.8s ease,
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.secret-content.revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+
+/* =================================
+   NAGŁÓWEK
+================================= */
+
+.secret-content h2 {
+    opacity: 0;
+    transform: translateY(25px);
+}
+
+.secret-content.revealed h2 {
+    animation: titleReveal 0.8s 0.25s ease both;
+}
+
+@keyframes titleReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =================================
+   KARTA PRACOWNIKA
+================================= */
+
+.secret-content.revealed .employee-card {
+    animation: employeeCardIn 1s 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes employeeCardIn {
+
+    0% {
+        opacity: 0;
+        transform:
+            translateY(-45px)
+            rotate(-5deg)
+            scale(0.9);
+    }
+
+    65% {
+        opacity: 1;
+        transform:
+            translateY(8px)
+            rotate(1deg)
+            scale(1.02);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            translateY(0)
+            rotate(-1deg)
+            scale(1);
+    }
+
+}
+
+
+/* =================================
+   GWIAZDKA
+================================= */
+
+.secret-content.revealed .employee-card::after {
+    animation: starPop 0.7s 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes starPop {
+
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(-90deg);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.2) rotate(18deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(12deg);
+    }
+
+}
+
+
+/* =================================
+   TEKST POD KARTĄ
+================================= */
+
+.secret-content.revealed > p:not(.section-number) {
+    animation: textReveal 0.7s 1.15s ease both;
+}
+
+@keyframes textReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =================================
+   REDUCED MOTION
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .button-shake,
+    .secret-content.revealed h2,
+    .secret-content.revealed .employee-card,
+    .secret-content.revealed .employee-card::after,
+    .secret-content.revealed > p:not(.section-number) {
+        animation: none;
+    }
+
+    .secret-content {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+}
